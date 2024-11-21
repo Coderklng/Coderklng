@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <style>
+  *{
+   margin:0;
+   padding:0;
+   box-sizing:border-box;
+    margin-top:50px;
+    text-align:center;
+    background:#111;
+   
+  
+   
+    
+  }
+  
+  
+ input{
+ padding:20px;
+  margin-top:20px;
+   background:#111;
+   color:#fff;
+   
+   border-radius:20px;
+   
+}
+  
+button{
+   padding:12px;
+  margin-top:20px;
+   background:blueviolet;
+   color:#fff;
+   
+   border-radius:20px;
+  
+  
+}
+ 
+.Container{
+  
+  background:#fff;
+  color:#111;
+  padding:20px;
+  border-radius:12px;
+} 
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center; color:#fff;">
+    QR code Generator
+  </h1>
+  <div class="Container">
+    <input type="text" id="text" placeholder="Type or url">
+    <br><button onclick="generateQr()">Generate QR</button>
+    <div id="qrcode">
+      
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>  <script>
+  function generateQr(){
+  var qrText = document.querySelector('#text').value;
+  var qrCode = document.querySelector('#qrcode');
+  var hide = document.querySelector('h1');
+        qrCode.innerHTML="";
+    hide.style.color="blueviolet";
+    if(qrText === "")
+    {
+      
+         alert("please fill the url");
+      hide.style.color="red";
+    }else{
+      
+     hide.style.color="#4caf50";
+       new QRCode(qrCode,{
+    
+         text:qrText,
+         width:256,
+         height:256,
+         
+        
+         
+       });
+      
+      
+    }
+    
+    
+    
+  }
+  
+  </script>
+  
+  
+</body>
+</html>
